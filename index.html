@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Loader Animation</title>
+    <style>
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            display: grid;
+            margin: 50px; /* Centers it better on the screen */
+        }
+
+        .loader::before,
+        .loader::after {    
+            content: "";
+            grid-area: 1/1;
+            border: 8px solid;
+            border-radius: 50%;
+            border-color: red red transparent transparent;
+            mix-blend-mode: darken;
+            animation: spin 1s infinite linear;
+        }
+
+        .loader::after {
+            border-color: transparent transparent blue blue;
+            animation-direction: reverse;
+        }
+
+        @keyframes spin { 
+            100% { transform: rotate(1turn); }
+        }
+
+        /* Optional: Center the loader on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
